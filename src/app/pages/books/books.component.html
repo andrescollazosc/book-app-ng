@@ -1,0 +1,4 @@
+<div class="row">
+    <app-book-card *ngFor="let book of books" [book]="book" class="col-12 col-xs-6 col-sm-6 col-md-4 "
+      (onBookClicked)="showAlert($event)"></app-book-card>
+  </div>
