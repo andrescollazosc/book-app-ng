@@ -1,6 +1,8 @@
-export interface BookModel{
-    title?: string;
+export interface BookModel {
+    id?: string;
+    categoryId?: string;
+    name?: string;
+    isbn?: string;
     author?: string;
-    publicationDate?: string;
-    image?: string;
+    pathImage?: string;
 }

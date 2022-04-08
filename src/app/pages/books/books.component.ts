@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { BookDataMock } from 'src/app/mocks/book-data.mocks';
 import { BookModel } from 'src/app/models/book.model';
+import { BookService } from 'src/app/services/book.service';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-books',
@@ -10,7 +11,9 @@ import { BookModel } from 'src/app/models/book.model';
 export class BooksComponent implements OnInit {
 
   public books: BookModel[] = [];
+  public isLoad = false;
 
+  constructor(private _bookService: BookService){}
 
   ngOnInit(): void {
     this.initializeData();
@@ -20,9 +23,14 @@ export class BooksComponent implements OnInit {
     this.getBooks();
   }
 
-  private getBooks(): BookModel[] {
-    this.books = BookDataMock.getBooks();
-    return this.books;
+  private getBooks(): void {
+    this._bookService.getBooks()
+    .pipe(finalize(() => {
+      this.isLoad = true;
+    }))
+    .subscribe(response => {
+      this.books = response;
+    });
   }
 
   public showAlert(value: string): void {

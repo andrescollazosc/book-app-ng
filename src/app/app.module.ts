@@ -7,6 +7,8 @@ import { BookCardComponent } from './components/book-card/book-card.component';
 import { HomeComponent } from './pages/home/home.component';
 import { BooksComponent } from './pages/books/books.component';
 import { BookPageComponent } from './pages/book-page/book-page.component';
+import { HttpClientModule } from '@angular/common/http';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -14,11 +16,13 @@ import { BookPageComponent } from './pages/book-page/book-page.component';
     BookCardComponent,
     HomeComponent,
     BooksComponent,
-    BookPageComponent
+    BookPageComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
