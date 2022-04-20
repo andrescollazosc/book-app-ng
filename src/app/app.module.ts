@@ -9,6 +9,9 @@ import { BooksComponent } from './pages/books/books.component';
 import { BookPageComponent } from './pages/book-page/book-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { CreateBookPageComponent } from './pages/create-book-page/create-book-page.component';
+import { FormsModule } from '@angular/forms';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -17,12 +20,15 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     HomeComponent,
     BooksComponent,
     BookPageComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    CreateBookPageComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

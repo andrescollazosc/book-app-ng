@@ -1,0 +1,136 @@
+<h1>Crear Libro</h1>
+
+<form
+  autocomplete="off"
+  (ngSubmit)="submitBook(createBookForm)"
+  #createBookForm="ngForm"
+>
+  <div>
+    <div class="form-group row separator">
+      <label for="" class="col-2 col-form-label">Categoria</label>
+
+      <div class="col-8">
+        <select
+          class="form-control"
+          name="categoryId"
+          [ngModel]="book.categoryId"
+          [class.is-invalid]="categoryId.invalid && categoryId.touched"
+          #categoryId="ngModel"
+          required
+        >
+          <option *ngFor="let category of categories" [value]="category.id">
+            {{ category.description }}
+          </option>
+        </select>
+
+        <small
+          *ngIf="categoryId.invalid && categoryId.touched"
+          class="form-group text-danger"
+        >
+          La categoria es obligatoria
+        </small>
+      </div>
+    </div>
+
+    <div class="form-group row separator">
+      <label for="" class="col-2 col-form-label">Libro</label>
+
+      <div class="col-8">
+        <input
+          type="text"
+          class="form-control"
+          name="name"
+          placeholder="Libro"
+          [class.is-invalid]="name.invalid && name.touched"
+          [ngModel]="book.name"
+          required
+          #name="ngModel"
+          minlength="4"
+          maxlength="20"
+        />
+        <small
+          *ngIf="name.invalid && name.touched"
+          class="form-group text-danger"
+        >
+          Ingrese minimo 3 caracteres
+        </small>
+      </div>
+    </div>
+
+    <div class="form-group row separator">
+      <label for="" class="col-2 col-form-label">Autor</label>
+
+      <div class="col-8">
+        <input
+          type="text"
+          class="form-control"
+          name="author"
+          placeholder="Autor"
+          [ngModel]="book.author"
+          [class.is-invalid]="author.invalid && author.touched"
+          required
+          #author="ngModel"
+          minlength="3"
+        />
+        <small
+          *ngIf="author.invalid && author.touched"
+          class="form-group text-danger"
+        >
+          Ingrese minimo 3 caracteres
+        </small>
+      </div>
+    </div>
+
+    <div class="form-group row separator">
+      <label for="" class="col-2 col-form-label">Isbn</label>
+
+      <div class="col-8">
+        <input
+          type="text"
+          class="form-control"
+          name="isbn"
+          placeholder="Isbn"
+          [ngModel]="book.isbn"
+          required
+          #isbn="ngModel"
+          minlength="6"
+        />
+        <small
+          *ngIf="author.invalid && author.touched"
+          class="form-group text-danger"
+        >
+          Ingrese minimo 3 caracteres
+        </small>
+      </div>
+    </div>
+
+    <div class="form-group row separator">
+      <label for="" class="col-2 col-form-label">Imagen</label>
+
+      <div class="col-8">
+        <input
+          type="text"
+          class="form-control"
+          name="pathImage"
+          placeholder="Imagen"
+          [ngModel]="book.pathImage"
+          required
+          #pathImage="ngModel"
+          minlength="6"
+        />
+        <small
+          *ngIf="author.invalid && author.touched"
+          class="form-group text-danger"
+        >
+          Ingrese minimo 3 caracteres
+        </small>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <button type="submit" class="btn btn-outline-primary btn-block">
+      Guardar
+    </button>
+  </div>
+</form>
