@@ -14,6 +14,9 @@ export class BookCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    if (this.book.pathImage == null) {
+      this.book.pathImage = '../../../assets/images/default-book1.png';
+    }
   }
 
   public onResult(): void {

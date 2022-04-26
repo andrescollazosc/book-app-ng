@@ -60,7 +60,6 @@ export class CreateBookPageComponent implements OnInit {
     this._categoryService.getCategories()
     .pipe(finalize(() => {
       this.isLoadData = true;
-      console.log(this.categories);      
     }))
     .subscribe(response => {
       this.categories = response;

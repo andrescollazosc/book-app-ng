@@ -17,7 +17,7 @@
           [class.is-invalid]="categoryId.invalid && categoryId.touched"
           #categoryId="ngModel"
           required
-        >
+        >        
           <option *ngFor="let category of categories" [value]="category.id">
             {{ category.description }}
           </option>

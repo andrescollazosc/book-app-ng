@@ -29,11 +29,17 @@
         font-size: 14px;
         padding: 10px;
     }
+
+    &__label-book {
+        font-weight: 700;
+    }
+
 }
 
 @media (max-width: 576px) {
     .book-card-container {
         flex-direction: column;
+        cursor: pointer;
 
         &__image-container {
             width: 100%;

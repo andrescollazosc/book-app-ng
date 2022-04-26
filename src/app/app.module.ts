@@ -10,8 +10,9 @@ import { BookPageComponent } from './pages/book-page/book-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { CreateBookPageComponent } from './pages/create-book-page/create-book-page.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { CreateBookReactiveComponent } from './pages/create-book-reactive/create-book-reactive.component';
 
 @NgModule({
   declarations: [
@@ -22,13 +23,15 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     BookPageComponent,
     SpinnerComponent,
     CreateBookPageComponent,
-    NavbarComponent
+    NavbarComponent,
+    CreateBookReactiveComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

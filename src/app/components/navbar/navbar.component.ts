@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ROUTES } from 'src/app/constants/routing.constants';
 
 @Component({
   selector: 'app-navbar',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+
+  public routes = ROUTES;
 
   constructor() { }
 

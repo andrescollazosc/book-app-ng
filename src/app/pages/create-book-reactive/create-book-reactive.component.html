@@ -1,0 +1,109 @@
+<h1>Crear Libro Reactivo</h1>
+
+<form autocomplete="off" [formGroup]="formBook" (ngSubmit)="submitBook()">
+    <div>
+        <div class="form-group row separator">
+          <label for="" class="col-2 col-form-label">Categoria</label>
+    
+          <div class="col-8">
+            <select
+              class="form-control"
+              formControlName="categoryId"
+              [class.is-invalid]="validateControlCategory"              
+            >        
+              <option *ngFor="let category of categories" [value]="category.id">
+                {{ category.description }}
+              </option>
+            </select>
+    
+            <small
+              *ngIf="validateControlCategory" class="text-danger"
+            >
+              La categoria es obligatoria
+            </small>
+          </div>
+        </div>
+    
+        <div class="form-group row separator">
+          <label for="" class="col-2 col-form-label">Libro</label>
+    
+          <div class="col-8">
+            <input
+              type="text"
+              class="form-control"
+              formControlName="name"
+              [class.is-invalid]="validateControlName"
+              placeholder="Libro"
+            />
+            <small
+              *ngIf="validateControlName" class="text-danger"
+            >
+              Ingrese minimo 3 caracteres
+            </small>
+          </div>
+        </div>
+    
+        <div class="form-group row separator">
+          <label for="" class="col-2 col-form-label">Autor</label>
+    
+          <div class="col-8">
+            <input
+              type="text"
+              class="form-control"
+              formControlName="author"
+              [class.is-invalid]="validateControlAuthor"
+              placeholder="Autor"
+            />
+            <small
+              *ngIf="validateControlAuthor" class="text-danger"
+            >
+              Ingrese minimo 3 caracteres
+            </small>
+          </div>
+        </div>
+    
+        <div class="form-group row separator">
+          <label for="" class="col-2 col-form-label">Isbn</label>
+    
+          <div class="col-8">
+            <input
+              type="text"
+              class="form-control"
+              formControlName="isbn"
+              placeholder="Isbn"
+              [class.is-invalid]="validateControlIsbn"
+            />
+            <small
+              *ngIf="validateControlIsbn" class="text-danger"
+            >
+              Ingrese minimo 3 caracteres
+            </small>
+          </div>
+        </div>
+    
+        <div class="form-group row separator">
+          <label for="" class="col-2 col-form-label">Imagen</label>
+    
+          <div class="col-8">
+            <input
+              type="text"
+              class="form-control"
+              formControlName="pathImage"              
+              placeholder="Imagen"
+              [class.is-invalid]="validateControlImagen"
+            />
+            <small
+              *ngIf="validateControlImagen" class="text-danger"
+            >
+              Ingrese minimo 3 caracteres
+            </small>
+          </div>
+        </div>
+      </div>
+    
+      <div class="form-group row">
+        <button type="submit" class="btn btn-outline-primary btn-block">
+          Guardar
+        </button>
+      </div>
+</form>
